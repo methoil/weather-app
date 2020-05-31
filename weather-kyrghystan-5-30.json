@@ -1,0 +1,41 @@
+{
+  "request": {
+    "type": "LatLon",
+    "query": "Lat 40.71 and Lon 74.01",
+    "language": "en",
+    "unit": "m"
+  },
+  "location": {
+    "name": "Oyalma",
+    "country": "Kyrghyzstan",
+    "region": "Osh",
+    "lat": "40.667",
+    "lon": "73.950",
+    "timezone_id": "Asia/Bishkek",
+    "localtime": "2020-05-31 02:55",
+    "localtime_epoch": 1590893700,
+    "utc_offset": "6.0"
+  },
+  "current": {
+    "observation_time": "08:55 PM",
+    "temperature": 4,
+    "weather_code": 176,
+    "weather_icons": [
+      "https://assets.weatherstack.com/images/wsymbols01_png_64/wsymbol_0025_light_rain_showers_night.png"
+    ],
+    "weather_descriptions": [
+      "Patchy rain possible"
+    ],
+    "wind_speed": 4,
+    "wind_degree": 95,
+    "wind_dir": "E",
+    "pressure": 1017,
+    "precip": 0.4,
+    "humidity": 77,
+    "cloudcover": 73,
+    "feelslike": 4,
+    "uv_index": 1,
+    "visibility": 10,
+    "is_day": "no"
+  }
+}
