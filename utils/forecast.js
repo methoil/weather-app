@@ -14,8 +14,9 @@ function forecast(lat, long, cb) {
       return cb('unaable to find entered location', undefined);
     }
 
-    const { temperature, feelslike } = res.body.current;
-    cb(undefined, `It is currently ${temperature} degrees out, it feels like ${feelslike} out.`);
+    // const { temperature, feelslike } = res.body.current;
+    // cb(undefined, `It is currently ${temperature} degrees out, it feels like ${feelslike} out.`);
+    cb(undefined, res.body.current);
   });
 }
 

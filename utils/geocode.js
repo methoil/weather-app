@@ -7,7 +7,7 @@ const geocode = (city, cb) => {
   request(config, (err, res) => {
     if (err) {
       return cb('Unable to connect to location services', undefined);
-    } else if (res.body.features.length === 0) {
+    } else if (!res.body.features || res.body.features.length === 0) {
       return cb('Unable to find location services', undefined);
     } else {
       const { center, place_name: placeName } = res.body.features[0];

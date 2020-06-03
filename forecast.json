@@ -1,0 +1,22 @@
+{
+  "observation_time": "02:20 AM",
+  "temperature": 68,
+  "weather_code": 122,
+  "weather_icons": [
+    "https://assets.weatherstack.com/images/wsymbols01_png_64/wsymbol_0004_black_low_cloud.png"
+  ],
+  "weather_descriptions": [
+    "Overcast"
+  ],
+  "wind_speed": 0,
+  "wind_degree": 242,
+  "wind_dir": "WSW",
+  "pressure": 1012,
+  "precip": 0,
+  "humidity": 45,
+  "cloudcover": 100,
+  "feelslike": 68,
+  "uv_index": 1,
+  "visibility": 10,
+  "is_day": "no"
+}
