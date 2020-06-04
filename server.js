@@ -1,18 +1,16 @@
+const path = require('path');
 const express = require('express');
 const forecastData = require('./forecast.json');
+
 const app = express();
 
-app.get('', (req, res) => {
-  res.send('<h1>Hello express perfect</h1>');
-});
+const lo = console.log;
 
-app.get('/help', (req, res) => {
-  res.send({ name: 'Boris Mateev', class: 'Fullstack Engineer' });
-});
+const publicDir = path.join(__filename, '../public');
+app.use(express.static(publicDir));
 
-app.get('/about', (req, res) => {
-  res.send('<h1>About</h1>');
-});
+app.use('/help', express.static(path.join(publicDir, '/help.html')));
+app.use('/about', express.static(path.join(publicDir, '/about.html')));
 
 app.get('/weather', async (req, res) => {
   return res.send(forecastData);
