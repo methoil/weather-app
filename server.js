@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 const forecastData = require('./forecast.json');
+const geocode = require('./utils/geocode.js');
+const forecast = require('./utils/forecast.js');
 
 const app = express();
 
@@ -53,7 +55,44 @@ app.get('/help/*', (req, res) => {
 });
 
 app.get('/weather', async (req, res) => {
-  return res.send(forecastData);
+  const { address } = req.query;
+  if (!address) {
+    return res.send({
+      error: 'you must provide an address',
+    });
+  }
+
+  geocode(address, (geocodeError, geocodeData) => {
+    if (geocodeError) {
+      lo('error:', geocodeError);
+      return res.send({ geocodeError });
+    };
+
+    const { latitude, longitude, placeName } = geocodeData;
+    forecast(latitude, longitude, (forecastErr, forecastData) => {
+      if (forecastErr) {
+        lo('error:', forecastErr);
+        return res.send({ geocodeError });
+      };
+      lo(`${forecastData} At: ${placeName}`);
+
+      res.send({
+        forecast: forecastData,
+        location: placeName,
+        address,
+      })
+    });
+  });
+});
+
+app.get('/products', (req, res) => {
+  if (!req.query.search) {
+    return res.send({
+      error: 'You must provide a search term',
+    });
+  }
+  lo(req.query);
+  res.send({ products: [] });
 });
 
 app.get('*', (req, res) => {

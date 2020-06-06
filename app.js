@@ -9,7 +9,6 @@ const lo = console.log;
 const city = process.argv[2];
 getWeatherAtCity(city);
 
-
 function getWeatherAtCity(city) {
   return geocode(city, (err, geocodeData) => {
     if (err) return lo('error:', err);
