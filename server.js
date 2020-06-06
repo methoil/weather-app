@@ -9,7 +9,7 @@ const lo = console.log;
 
 const publicDir = path.join(__filename, '../public');
 const viewsPath = path.join(__dirname, './templates/views');
-const partialsPath = path.join(__dirname, '../templates/partials');
+const partialsPath = path.join(__dirname, './templates/partials');
 
 // Setup handlebars engine and views location
 app.set('view engine', 'hbs');
@@ -39,15 +39,29 @@ app.get('/help', (req, res) => {
   res.render('help', {
     title: 'Help',
     content: 'Set the location of that you would like to know the weather of',
+    name: 'Boris Mateev',
+  });
+});
+// app.use('/help', express.static(path.join(publicDir, '/help.html')));
+
+app.get('/help/*', (req, res) => {
+  res.render('404', {
+    title: 'Help',
+    error: 'Help article not found.',
+    name: 'Boris Mateev',
   });
 });
 
-
-app.use('/help', express.static(path.join(publicDir, '/help.html')));
-
-
 app.get('/weather', async (req, res) => {
   return res.send(forecastData);
+});
+
+app.get('*', (req, res) => {
+  res.render('404', {
+    title: 'Something went wrong.',
+    error: 'Page not found.',
+    name: 'Boris Mateev',
+  });
 });
 
 app.listen(3000, () => {
