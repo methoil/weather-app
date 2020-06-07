@@ -5,7 +5,7 @@
 <head>
   <title>Weather</title>
   {{>headLinks}}
-  <script src="/js/app.js"></script>
+
 </head>
 
 <body>
@@ -15,9 +15,18 @@
       class="landing-image"
       src="/img/landscape_seydaNeen.jpg"
     >
+
+    <form>
+      <input placeholder="Location">
+      <button>Search</button>
+    </form>
+
+    <p id="p1"></p>
+    <p id="p2"></p>
   </div>
 
   {{>footer}}
+  <script src="/js/app.js"></script>
 </body>
 
 </html>
